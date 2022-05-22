@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.senators.senatordetails.SenatorDetailsViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:orientation="vertical"
+            android:padding="@dimen/secondary_margin">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/white"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:shadowRadius="5"
+                    app:cardCornerRadius="@dimen/card_radius"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/secondary_margin"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginEnd="@dimen/secondary_margin"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/MainTextTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@{viewModel.senator.first_name}"
+                            tools:text="Full Name" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@{viewModel.senator.bio}"
+                            tools:text="Bio" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/large_margin"
+                            android:divider="@drawable/divider"
+                            android:orientation="horizontal"
+                            android:showDividers="middle">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/roll" />
+
+                                <TextView
+                                    style="@style/SecondaryTextTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@{viewModel.senator.job.role}"
+                                    tools:text="Roll" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/company" />
+
+                                <TextView
+                                    style="@style/SecondaryTextTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@{viewModel.senator.job.company}"
+                                    tools:text="Company" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/large_margin"
+                            android:layout_marginBottom="@dimen/secondary_margin"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_margin="@dimen/secondary_margin"
+                                android:src="@drawable/linkedin" />
+
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/send_email"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_margin="@dimen/secondary_margin"
+                                android:src="@drawable/email" />
+
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/call"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_margin="@dimen/secondary_margin"
+                                android:src="@drawable/call" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="8dp"
+                    android:src="@drawable/avatar"
+                    app:senatorAvatar="@{viewModel.senator.avatar}" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/secondary_margin"
+                android:text="@string/address" />
+
+            <TextView
+                style="@style/SecondaryTextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.senator.contact.address}"
+                tools:text="address" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/secondary_margin"
+                android:text="@string/email" />
+
+            <TextView
+                style="@style/SecondaryTextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.senator.contact.email}"
+                tools:text="email" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/secondary_margin"
+                android:text="@string/phone" />
+
+            <TextView
+                style="@style/SecondaryTextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.senator.contact.phone_number}"
+                tools:text="phone_number" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/secondary_margin"
+                android:text="@string/education" />
+
+            <TextView
+                style="@style/SecondaryTextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.senator.education}"
+                tools:text="education" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/secondary_margin"
+                android:text="@string/birth_date" />
+
+            <TextView
+                style="@style/SecondaryTextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.senator.birth_day}"
+                tools:text="birth_day" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/secondary_margin"
+                android:text="@string/country" />
+
+            <TextView
+                style="@style/SecondaryTextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.senator.country}"
+                tools:text="country" />
+        </LinearLayout>
+    </ScrollView>
+</layout>

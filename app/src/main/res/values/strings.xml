@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Senators</string>
+    <string name="roll">Roll</string>
+    <string name="company">Company</string>
+    <string name="address">Address</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="education">Education</string>
+    <string name="birth_date">Birth Date</string>
+    <string name="country">Country</string>
+
+</resources>
